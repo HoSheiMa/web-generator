@@ -1,0 +1,54 @@
+# Default json schema for Builder class
+- Navbar Component
+    - `visible`
+        - description: visibility of navigation bar
+        - type: Boolean
+        - default: true
+    - `navbar_logo`
+        - description:
+            this should be valid url and it has priority than `navbar_title`
+        - type: String
+        - default: null
+    - `navbar_title`
+        - type: String
+        - default: null
+    - `navbar_menulinks`
+        - description: children of this menu called `navbar_menulinks_items`
+        - type: Array
+        - default: []
+    - `navbar_menulinks_items`
+        - type: Map
+        - `link` 
+            - type: String
+            - default: null
+            - description: should be valid link
+        - `title`
+            - type: String
+            - default: null
+        - `disabled`
+            - type: Boolean
+            - default: false
+- Home start Component
+    - `visible`
+        - description: visibility of home start section
+        - type: Boolean
+        - default: true
+    - `title`
+        - type: String
+        - default: null
+    - `details`
+        - type: String
+        - default: null
+    - `background_color`
+        - type: String
+        - default: null
+    - `background_image`
+        - type: String
+        - default: null
+    - `sub_images`
+        - type: Array
+        - default: []
+        - max length "3"
+    - `auto_generate`
+        - type: Boolean
+        - default: true
