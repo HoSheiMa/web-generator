@@ -47,6 +47,7 @@ class Studio extends Component
         $this->project->refresh();
         $schema = Schema::databaseToJson($this->project);
         $builder = new Builder($this->project);
+        info('clicked', [$focas, $schema,]);
         $builder->build($schema);
     }
 

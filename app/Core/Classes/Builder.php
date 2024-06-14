@@ -3,6 +3,7 @@
 
 namespace App\Core\Classes;
 
+use App\Core\Classes\Themes\Metronic;
 use App\Core\Classes\Themes\Ubold;
 use App\Models\Attribute as AttributeModel;
 use App\Models\Component as ComponentModel;
@@ -74,12 +75,17 @@ class Builder
         // ! clean the folder
         // ! this only for debuging the system
         // !!!!!!!!!!!!!!!!!!!
-        // File::deleteDirectories(public_path() . '/Outputs/');
-        // File::ensureDirectoryExists(public_path() . '/Outputs/');
+        File::deleteDirectories(public_path() . '/Outputs/');
+        File::ensureDirectoryExists(public_path() . '/Outputs/');
         // !!!!!!!!!!!!!!!!!!!
         # generate unqie id for this rendering
         # create folder for save rendering files
         File::ensureDirectoryExists($this->path);
+        # themes
+        $themes = [
+            "UBOLD" => new Ubold,
+            "METRONIC" => new Metronic
+        ];
         # generate each page one by one
         foreach ($structures as $page_name => $structure) {
             (new Page(
@@ -87,9 +93,12 @@ class Builder
                 $this->path,
                 $this->render_id,
                 $page_name,
-                new Ubold,
+                $themes[$this->project->theme_name],
             ))->build($structure);
         }
+        # inject Dashboard
+        (new Dashboard($this->project, $this->path, $themes[$this->project->theme_name]))->inject();
+
         $this->project->update(['status' => Utils::READY]);
         return $this->render_id;
     }

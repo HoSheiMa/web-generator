@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 
 class Features
 {
-    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id)
+    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {
     }
     public $structures;
@@ -35,7 +35,7 @@ class Features
     {
         $structures = $this->structures;
 
-        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->component_name}.blade.php");
+        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
         return Blade::render(
             $component,
             $structures

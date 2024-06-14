@@ -67,6 +67,7 @@ class page
                 $component_name,
                 $this->folder,
                 $this->page_id,
+                $this->theme
             ))->build($structure);
         }
 

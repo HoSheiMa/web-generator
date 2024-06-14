@@ -10,7 +10,7 @@ class Pexels
     public function getImage($content, $max = 3, $random = true)
     {
         $headers = [
-            'Authorization' => env('PEXEL_KEY'),
+            'Authorization' => env('PEXEL_KEY', 'INH79N82TcKoocpMwNH47OGk2lxm6L3q7K9dslqjHaTP1MbfzUa0aW5t'),
         ];
         $color = '';
         if ($random) $color = "&color=" . collect(["red", "orange", "yellow", "green", "turquoise", "blue", "violet", "pink", "brown", "black", "gray", "white"])->random();

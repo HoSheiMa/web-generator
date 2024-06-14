@@ -20,19 +20,18 @@ Route::get('/', function () {
 Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
     Route::get('/projects/{project}/success', [App\Http\Controllers\ProjectController::class, 'success']);
     Route::get('/projects/{project}/export', [App\Http\Controllers\ProjectController::class, 'export']);
     Route::resource('projects', App\Http\Controllers\ProjectController::class);
-
     Route::resource('users', App\Http\Controllers\UserController::class)->middleware('IsAdmin');;
     Route::get('/payment/transactions', [App\Http\Controllers\PaymentController::class, 'transactions']);
     Route::resource('payment', App\Http\Controllers\PaymentController::class);
-
     Route::get('/studio/{project}', [App\Http\Controllers\StudioController::class, 'index']);
-
     // confirm route for all urls
     Route::get('/contactus', [App\Http\Controllers\HomeController::class, 'contactus']);
+    Route::get('/aboutus', function () {
+        return view('aboutus');
+    });
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');

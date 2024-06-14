@@ -25,7 +25,8 @@ class Component
         public $component_index,
         public $component_name,
         public $folder,
-        public $page_id
+        public $page_id,
+        public $theme
     ) {
         $component_model = ModelsComponent::create([
             "component_name" => $component_name,
@@ -34,13 +35,13 @@ class Component
         ]);
         $component_id = $component_model->id;
         $this->components = [
-            "navbar" => new Navbar($content, $rander_id, $component_name, $folder, $component_id),
-            "home-start" => new HomeStart($content, $rander_id, $component_name, $folder, $component_id),
-            "clients-side" => new ClientsSide($content, $rander_id, $component_name, $folder, $component_id),
-            "features" => new Features($content, $rander_id, $component_name, $folder, $component_id),
-            "demos" => new Demos($content, $rander_id, $component_name, $folder, $component_id),
-            "contactus" => new ContactUs($content, $rander_id, $component_name, $folder, $component_id),
-            "footer" => new Footer($content, $rander_id, $component_name, $folder, $component_id),
+            "navbar" => new Navbar($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "home-start" => new HomeStart($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "clients-side" => new ClientsSide($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "features" => new Features($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "demos" => new Demos($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "contactus" => new ContactUs($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            "footer" => new Footer($content, $rander_id, $component_name, $folder, $component_id, $theme),
         ];
     }
     /**

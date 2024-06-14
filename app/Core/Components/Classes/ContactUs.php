@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 
 class ContactUs
 {
-    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id)
+    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {
     }
 
@@ -49,7 +49,7 @@ class ContactUs
     {
         $structures = $this->structures;
 
-        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->component_name}.blade.php");
+        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
         return $this->injectPHP(Blade::render(
             $component,
             $structures

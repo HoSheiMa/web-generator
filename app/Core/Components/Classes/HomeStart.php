@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class HomeStart
 {
     public $structures;
-    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id)
+    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {
     }
     public function prepare(
@@ -21,10 +21,13 @@ class HomeStart
     ) {
         $p = new Pexels;
 
+        info('cover info:');
+        info($p->getImage("$this->content cover", 1));
         if (isset($structures['auto_generate']) && $structures['auto_generate']) {
             $guess = random_int(0, 1);
             info($this->content);
             if ($guess) {
+
                 $src = $p->getImage("$this->content cover", 1)['photos'][0]['src']['landscape'];
                 // save the image to assets <START>
                 $image_path = (new Assets($this->folder))->saveFileFromURL($src);
@@ -41,7 +44,6 @@ class HomeStart
                 (new Assets($this->folder))->saveFileFromURL($structures["background_image"]);
             }
         }
-
         if (!isset($structures['sub_images']) || count($structures['sub_images']) == 0) {
             $src = $p->getImage("$this->content cinematic", 3);
             $first  = (new Assets($this->folder))->saveFileFromURL($src['photos'][0]['src']['portrait']);;
@@ -74,7 +76,7 @@ class HomeStart
     public function toHTML()
     {
         $structures = $this->structures;
-        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->component_name}.blade.php");
+        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
         return Blade::render(
             $component,
             $structures

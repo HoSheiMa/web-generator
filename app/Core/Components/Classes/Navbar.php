@@ -4,12 +4,14 @@
 namespace App\Core\Components\Classes;
 
 use App\Models\Attribute;
+use ErrorException;
+use Exception;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 
 class Navbar
 {
-    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id)
+    public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {
     }
     public $structures;
@@ -30,12 +32,15 @@ class Navbar
                 },
             ]);
         }
+
         return $this;
     }
     public function toHTML()
     {
         $structures = $this->structures;
-        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->component_name}.blade.php");
+        // throw_if(!isset($structures['title']), 'RuntimeException', json_encode($structures));
+        info('structures', $structures);
+        $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
         return Blade::render(
             $component,
             $structures

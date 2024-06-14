@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Classes\Themes\Metronic;
 use App\Core\Classes\Themes\Ubold;
 use App\Core\Classes\Utils;
 use App\Export\Zip;
 use App\Models\Project;
 use App\Models\User;
 use App\ProjectSchema\Ecommerce;
+use App\ProjectSchema\METRONIC\Ecommerce as METRONICEcommerce;
+use App\ProjectSchema\METRONIC\Portfolio as METRONICPortfolio;
 use App\ProjectSchema\Portfolio;
+use App\ProjectSchema\UBOLD\Ecommerce as UBOLDEcommerce;
+use App\ProjectSchema\UBOLD\Portfolio as UBOLDPortfolio;
 use Illuminate\Http\Request;
 use Response;
 
@@ -46,13 +51,14 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
-        if (auth()->user()->available_projects  == 0) return redirect('payment');
+        if (auth()->user() && auth()->user()->available_projects  == 0) return redirect('payment');
+        if (auth('api')->user() && auth('api')->user()->available_projects  == 0) return redirect('payment');
 
         $form = $request->validate(
             [
                 'name' => "required|max:255",
                 "details" => "required|max:2048",
-                "avatar " => "image|mimes:png,jpg,jpeg",
+                "avatar" => "image|mimes:png,jpg,jpeg",
                 'theme' => "required",
                 "type" => "required",
             ]
@@ -63,13 +69,20 @@ class ProjectController extends Controller
 
 
         $themes = [
-            'metronic' => null,
+            'metronic' => Metronic::class,
             'ubold' => Ubold::class,
         ];
 
         $types = [
-            'portfolio' => Portfolio::class,
-            'ecommerce' => Ecommerce::class
+            'ubold' =>
+            [
+                'portfolio' => UBOLDPortfolio::class,
+                'ecommerce' => UBOLDEcommerce::class
+            ],
+            'metronic' => [
+                'portfolio' => METRONICPortfolio::class,
+                'ecommerce' => METRONICEcommerce::class
+            ]
         ];
 
         $path = $request->avatar->store('public/images');
@@ -77,19 +90,19 @@ class ProjectController extends Controller
         $form['avatar'] = $path;
 
         $name = $form['name'];
-        $type = $types[$form['type']];
+        $type = $types[$form['theme']][$form['type']];
         $theme = $themes[$form['theme']];
 
         // TODO: should go to AI to translate and come back to inject with this project params
         $brief = []; // $form['details'];
         $content = $name; // form now test v1
-
+        $user_id = auth()->user() ?  auth()->user()->id :  auth("api")->user()->id;
         $project = Project::create([
             'id' => 'live' . uniqid(),
             'name' => $form['name'],
             'details' => $form['details'],
             'theme_name' => (new $theme)->theme_name,
-            'user_id' => auth()->user()->id,
+            'user_id' => $user_id,
             'status' => Utils::READY,
             "image_url" => $form['avatar'],
             "type" => $form['type'],
@@ -97,7 +110,7 @@ class ProjectController extends Controller
 
         $id = (new $type($project))->build($content, $brief);
 
-        $user = User::find(auth()->user()->id);
+        $user = User::find($user_id);
         if ($user) $user->decrement('available_projects');
 
 
@@ -135,7 +148,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        if ($project->user_id != auth()->user()->id) return redirect('/');
+        if (auth()->user() && $project->user_id != auth()->user()->id) return redirect('/');
+        if (auth('api')->user() && $project->user_id != auth('api')->user()->id) return redirect('/');
+        if (!auth()->user()  && !auth('api')->user()) return redirect('/');
         $project->delete();
         return back();
     }

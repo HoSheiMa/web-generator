@@ -3,6 +3,7 @@
 
 namespace App\Core\Classes\Themes;
 
+$theme_name = 'Ubold';
 class Ubold
 {
     public  $cssLinks = [

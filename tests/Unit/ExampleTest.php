@@ -74,7 +74,7 @@ class ExampleTest extends TestCase
                     'name' => 'features',
                     "visible" => true,
                     "title" => "The admin is fully responsive and easy to customize",
-                    "detials" =>
+                    "details" =>
                     "The clean and well commented code allows easy customization of the theme.It's designed for describing your app, agency or business.",
                     "items" => [
                         [
