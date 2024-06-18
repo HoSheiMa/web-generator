@@ -7,6 +7,12 @@
     <title>
       Document
     </title>
+    <link href=
+    "./theme/plugins/custom/datatables/datatables.bundle.css" rel=
+    "stylesheet" type="text/css" id="app-style">
+    <link href=
+    "./theme/plugins/custom/vis-timeline/vis-timeline.bundle.css"
+    rel="stylesheet" type="text/css" id="app-style">
     <link href="./theme/plugins/global/plugins.bundle.css" rel=
     "stylesheet" type="text/css" id="app-style">
     <link href="./theme/css/style.bundle.css" rel="stylesheet"
@@ -405,8 +411,8 @@
           data-tns-autoplay="true" data-tns-autoplay-timeout=
           "18000" data-tns-controls="true" data-tns-nav="false"
           data-tns-items="1" data-tns-center="false" data-tns-dots=
-          "false" data-tns-prev-button="#kt_team_slider_prev7010"
-          data-tns-next-button="#kt_team_slider_next7010"
+          "false" data-tns-prev-button="#kt_team_slider_prev3596"
+          data-tns-next-button="#kt_team_slider_next3596"
           data-tns-responsive=
           "{1200: {items: 3}, 992: {items: 2}}">
             <!--begin::Item-->
@@ -470,12 +476,12 @@
           </div><!--end::Wrapper-->
           <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_prev7010"><i class=
+          id="kt_team_slider_prev3596"><i class=
           "ki-outline ki-left fs-2x"></i></button> 
           <!--end::Button-->
            <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_next7010"><i class=
+          id="kt_team_slider_next3596"><i class=
           "ki-outline ki-right fs-2x"></i></button> 
           <!--end::Button-->
         </div><!--end::Slider-->
@@ -504,8 +510,8 @@
           data-tns-autoplay="true" data-tns-autoplay-timeout=
           "18000" data-tns-controls="true" data-tns-nav="false"
           data-tns-items="1" data-tns-center="false" data-tns-dots=
-          "false" data-tns-prev-button="#kt_team_slider_prev4627"
-          data-tns-next-button="#kt_team_slider_next4627"
+          "false" data-tns-prev-button="#kt_team_slider_prev276"
+          data-tns-next-button="#kt_team_slider_next276"
           data-tns-responsive=
           "{1200: {items: 3}, 992: {items: 2}}">
             <!--begin::Item-->
@@ -690,12 +696,12 @@
           </div><!--end::Wrapper-->
           <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_prev4627"><i class=
+          id="kt_team_slider_prev276"><i class=
           "ki-outline ki-left fs-2x"></i></button> 
           <!--end::Button-->
            <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_next4627"><i class=
+          id="kt_team_slider_next276"><i class=
           "ki-outline ki-right fs-2x"></i></button> 
           <!--end::Button-->
         </div><!--end::Slider-->
@@ -850,6 +856,27 @@
     "./theme/plugins/custom/typedjs/typedjs.bundle.js"></script> 
     <script src="./theme/js/custom/landing.js"></script> 
     <script src=
-    "./theme/js/custom/pages/pricing/general.js"></script>
+    "./theme/js/custom/pages/pricing/general.js"></script> 
+    <script src=
+    "./theme/plugins/custom/datatables/datatables.bundle.js"></script>
+    
+    <script src=
+    "./theme/plugins/custom/vis-timeline/vis-timeline.bundle.js"></script>
+    
+    <script src="./theme/js/widgets.bundle.js"></script> 
+    <script src="./theme/js/custom/widgets.js"></script> 
+    <script src="./theme/js/custom/apps/chat/chat.js"></script> 
+    <script src=
+    "./theme/js/custom/utilities/modals/upgrade-plan.js"></script> 
+    <script src=
+    "./theme/js/js/custom/utilities/modals/create-app.js"></script>
+    
+    <script src=
+    "./theme/js/custom/utilities/modals/upgrade-plan.js"></script> 
+    <script src=
+    "./theme/js/custom/utilities/modals/create-campaign.js"></script>
+    
+    <script src=
+    "./theme/js/custom/utilities/modals/users-search.js"></script>
   </body>
 </html>

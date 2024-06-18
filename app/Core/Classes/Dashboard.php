@@ -19,7 +19,6 @@ class Dashboard
     {
         $features_list = [
             'portfolio' => [
-                'crm',
                 'contactus'
             ],
             'ecommerce' => [
@@ -34,18 +33,27 @@ class Dashboard
 
         File::makeDirectory($this->project_folder . "/dashboard");
 
+        // connection configs 
+        File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/AUTH/configs.php"), $this->project_folder . "/dashboard/configs.php");
+
         // theme configs class
+        $css = collect($this->theme_class->cssLinks)->map(fn ($link) => "<link href=\".$link\" rel=\"stylesheet\" type=\"text/css\" id=\"app-style\" />")->join("\n");
+        $js =  collect($this->theme_class->jsLinks)->map(fn ($link) => "<script src=\".$link\"></script>")->join("\n");
+
+        // index page
+        File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/index.php"), $this->project_folder . "/dashboard/index.php");
+
         File::put($this->project_folder . "/dashboard/theme.php", "
             <?php
             \$theme_name = '{$this->theme_class->theme_name}';
-            \$css = '{$this->theme_class->css()}';
-            \$js = '{$this->theme_class->js()}';
+            \$css = '{$css}';
+            \$js = '{$js}';
         ");
         // Login (default)
         File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/AUTH/login.php"), $this->project_folder . "/dashboard/login.php");
 
-        if (in_array('crm', $features)) {
-            // File::copyDirectory(, $this->project_folder . "/dashboard");
+        if (in_array('contactus', $features)) {
+            File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/contactus.php"), $this->project_folder . "/dashboard/contactus.php");
         }
     }
 }
