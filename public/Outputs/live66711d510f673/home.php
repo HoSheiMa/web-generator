@@ -229,165 +229,76 @@
           <!--begin::Title-->
           <h3 class="fs-2hx text-gray-900 mb-5" id="how-it-works"
           data-kt-scroll-offset="{default: 100, lg: 150}">
-            The admin is fully responsive and easy to customize
+            The Recently added products
           </h3><!--end::Title-->
           <!--begin::Text-->
           <div class="fs-5 text-muted fw-bold">
-            The clean and well commented code allows easy
-            customization of the theme.It's designed for describing
-            your app, agency or business.
+            ٌYou can find whatever new brands and products in that
+            list
           </div><!--end::Text-->
         </div><!--end::Heading-->
         <!--begin::Row-->
-        <div class="row w-100 gy-10 mb-md-20">
+        <div class="row w-100 gy-10 mb-md-20" id="product-body">
           <!--begin::Col-->
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-1.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">1</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Responsive Layouts
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                Nemo enim ipsam voluptatem quia voluptas sit
-                aspernatur aut odit aut fugit
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-2.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">2</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Based on Bootstrap UI
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                Sed ut perspiciatis unde omnis iste natus error sit
-                voluptatem accusantium
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-3.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">3</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Creative Design
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                At vero eos et accusamus et iusto odio dignissimos
-                ducimus qui blanditiis
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-4.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">4</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Awesome Support
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                At solmen va esser necessi far uniform grammatica
-                pronun e plu sommun paroles.
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-5.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">5</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Easy to customize
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                If several languages coalesce the grammar of the is
-                more simple languages.
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
-          <div class="col-md-4 px-5">
-            <!--begin::Story-->
-            <div class="text-center mb-10 mb-md-0">
-              <!--begin::Illustration-->
-              <img src="./theme/media/avatars/300-6.jpg" class=
-              "mh-125px mb-9" alt=""> <!--end::Illustration-->
-               <!--begin::Heading-->
-              <div class="d-flex flex-center mb-5">
-                <!--begin::Badge-->
-                <span class=
-                "badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">6</span>
-                <!--end::Badge-->
-                 <!--begin::Title-->
-                <div class="fs-5 fs-lg-3 fw-bold text-gray-900">
-                  Quality Code
-                </div><!--end::Title-->
-              </div><!--end::Heading-->
-              <!--begin::Description-->
-              <div class="fw-semibold fs-6 fs-lg-4 text-muted">
-                At vero eos et accusamus et iusto odio dignissimos
-                ducimus qui blanditiis
-              </div><!--end::Description-->
-            </div><!--end::Story-->
-          </div>
         </div>
       </div><!--end::Container-->
     </div>
+    <script>
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+        fetch("./api/products/get.php", requestOptions)
+            .then(response => response.json()).then((products) => {
+                html = ``
+                for (const product of products) {
+                    html += `
+                    <div class="col-md-4 px-5">
+                          <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"> ${product.name} - <span class="text-primary"> ${product.brand} </span></h3>
+            </div>
+            <div class="card-body">
+                <img height="400" src="${product.image}" class="card-img-top" alt="${product.name}">
+                <p class="card-text mt-3">${product.description}</p>
+                <p class="card-text"><strong>Price:</strong> $<span style="font-size:36px">${product.price}</span></p>
+                <button onclick="addToCart(${product.id})" class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+                        </div>
+                    `
+                }
+
+                html += ""
+                document.querySelector('#product-body').innerHTML = html;
+
+            })
+            .catch(error => {
+                alert('something going wrong, please try again later')
+            });
+
+        function addToCart(productId) {
+            var requestOptions = {
+                method: 'POST',
+                redirect: 'follow',
+                'body': JSON.stringify({
+                    'product_id': productId,
+                    'count': 1,
+                })
+            };
+            fetch("./api/cart/add.php", requestOptions)
+                .then(response => response.json()).then((response) => {
+                    if (response.status == "error" && response.message == "User not logged in") {
+                        return window.location.assign('dashboard/login.php')
+                    }
+                    if (response.status == "error") {
+                        alert('something going wrong, please try again later')
+                    }
+                }).catch(error => {
+                    alert('something going wrong, please try again later')
+                });
+        }
+    </script>
     <div class="py-10 py-lg-20">
       <!--begin::Container-->
       <div class="container">
@@ -411,8 +322,8 @@
           data-tns-autoplay="true" data-tns-autoplay-timeout=
           "18000" data-tns-controls="true" data-tns-nav="false"
           data-tns-items="1" data-tns-center="false" data-tns-dots=
-          "false" data-tns-prev-button="#kt_team_slider_prev3596"
-          data-tns-next-button="#kt_team_slider_next3596"
+          "false" data-tns-prev-button="#kt_team_slider_prev6338"
+          data-tns-next-button="#kt_team_slider_next6338"
           data-tns-responsive=
           "{1200: {items: 3}, 992: {items: 2}}">
             <!--begin::Item-->
@@ -476,12 +387,12 @@
           </div><!--end::Wrapper-->
           <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_prev3596"><i class=
+          id="kt_team_slider_prev6338"><i class=
           "ki-outline ki-left fs-2x"></i></button> 
           <!--end::Button-->
            <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_next3596"><i class=
+          id="kt_team_slider_next6338"><i class=
           "ki-outline ki-right fs-2x"></i></button> 
           <!--end::Button-->
         </div><!--end::Slider-->
@@ -510,8 +421,8 @@
           data-tns-autoplay="true" data-tns-autoplay-timeout=
           "18000" data-tns-controls="true" data-tns-nav="false"
           data-tns-items="1" data-tns-center="false" data-tns-dots=
-          "false" data-tns-prev-button="#kt_team_slider_prev276"
-          data-tns-next-button="#kt_team_slider_next276"
+          "false" data-tns-prev-button="#kt_team_slider_prev223"
+          data-tns-next-button="#kt_team_slider_next223"
           data-tns-responsive=
           "{1200: {items: 3}, 992: {items: 2}}">
             <!--begin::Item-->
@@ -529,25 +440,6 @@
                 "text-gray-900 fw-bold text-hover-primary fs-3">Back
                 View of a Person in a Pink Spotlight</a> 
                 <!--end::Name-->
-                 <!--begin::Position-->
-                <div class="text-muted fs-6 fw-semibold mt-1">
-                  ...
-                </div><!--begin::Position-->
-              </div><!--end::Person-->
-            </div>
-            <div class="text-center">
-              <!--begin::Photo-->
-              <div class=
-              "octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-              style=
-              "background-image:url('./storage/pexels-photo-8533066.jpeg')">
-              </div><!--end::Photo-->
-              <!--begin::Person-->
-              <div class="mb-0">
-                <!--begin::Name-->
-                <a href="#" class=
-                "text-gray-900 fw-bold text-hover-primary fs-3">People
-                Performing a Chemical Test</a> <!--end::Name-->
                  <!--begin::Position-->
                 <div class="text-muted fs-6 fw-semibold mt-1">
                   ...
@@ -677,16 +569,35 @@
               <div class=
               "octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
               style=
-              "background-image:url('./storage/pexels-photo-8532867.jpeg')">
+              "background-image:url('./storage/pexels-photo-4669642.jpeg')">
               </div><!--end::Photo-->
               <!--begin::Person-->
               <div class="mb-0">
                 <!--begin::Name-->
                 <a href="#" class=
-                "text-gray-900 fw-bold text-hover-primary fs-3">Person
-                in Personal Protective Equipment Holding an
-                Erlenmeyer Flask Inside a Laboratory</a> 
+                "text-gray-900 fw-bold text-hover-primary fs-3">Man
+                in Front of a Projection of the American Flag</a> 
                 <!--end::Name-->
+                 <!--begin::Position-->
+                <div class="text-muted fs-6 fw-semibold mt-1">
+                  ...
+                </div><!--begin::Position-->
+              </div><!--end::Person-->
+            </div>
+            <div class="text-center">
+              <!--begin::Photo-->
+              <div class=
+              "octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
+              style=
+              "background-image:url('./storage/pexels-photo-6835870.jpeg')">
+              </div><!--end::Photo-->
+              <!--begin::Person-->
+              <div class="mb-0">
+                <!--begin::Name-->
+                <a href="#" class=
+                "text-gray-900 fw-bold text-hover-primary fs-3">Woman
+                in White Long Sleeves Sweater Posing Beautifully at
+                the Camera</a> <!--end::Name-->
                  <!--begin::Position-->
                 <div class="text-muted fs-6 fw-semibold mt-1">
                   ...
@@ -696,12 +607,12 @@
           </div><!--end::Wrapper-->
           <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_prev276"><i class=
+          id="kt_team_slider_prev223"><i class=
           "ki-outline ki-left fs-2x"></i></button> 
           <!--end::Button-->
            <!--begin::Button-->
            <button class="btn btn-icon btn-active-color-primary"
-          id="kt_team_slider_next276"><i class=
+          id="kt_team_slider_next223"><i class=
           "ki-outline ki-right fs-2x"></i></button> 
           <!--end::Button-->
         </div><!--end::Slider-->

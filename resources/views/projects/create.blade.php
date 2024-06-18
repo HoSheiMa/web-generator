@@ -107,7 +107,7 @@
                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
                                     <!--begin::Radio button-->
                                     <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                        <input class="form-check-input d-none" type="radio" checked value="metronic" name="theme" />
+                                        <input class="form-check-input d-none" type="radio" value="metronic" name="theme" />
 
                                     </span>
                                     <!--end::Radio button-->
@@ -128,7 +128,7 @@
                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
                                     <!--begin::Radio button-->
                                     <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                        <input class="form-check-input d-none" type="radio" checked value="ubold" name="theme" />
+                                        <input class="form-check-input d-none" type="radio" value="ubold" name="theme" />
 
                                     </span>
                                     <!--end::Radio button-->
@@ -172,7 +172,7 @@
                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
                                     <!--begin::Radio button-->
                                     <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                        <input class="form-check-input d-none" type="radio" checked value="ecommerce" name="type" />
+                                        <input class="form-check-input d-none" type="radio" value="ecommerce" name="type" />
 
                                     </span>
                                     <!--end::Radio button-->
@@ -195,7 +195,7 @@
                                 <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
                                     <!--begin::Radio button-->
                                     <span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                        <input class="form-check-input d-none" type="radio" checked value="portfolio" name="type" />
+                                        <input class="form-check-input d-none" type="radio" value="portfolio" name="type" />
 
                                     </span>
                                     <!--end::Radio button-->

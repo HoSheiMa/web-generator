@@ -5,12 +5,16 @@ namespace App\ProjectSchema\METRONIC;
 
 use App\Core\Classes\Builder;
 use App\Core\Classes\Schema;
+use App\Models\Project;
 
 class Ecommerce implements ProjectSchemaInterface
 {
+    public function __construct(public Project $project)
+    {
+    }
     public function build($content, $replace_schema)
     {
-        $builder = new Builder();
+        $builder = new Builder($this->project);
         return $builder->setContent($content)->build(
             Schema::matchSchema(
                 $this->getSchema(),
@@ -28,39 +32,36 @@ class Ecommerce implements ProjectSchemaInterface
                     "visible" => true,
                     "navbar_title" => "google dogs.com",
                     "navbar_menulinks" => [
-                        (object) [
+                        [
                             "title" => "Home",
                             "link" => "./home.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Features",
                             "link" => "./features.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Demos",
                             "link" => "./demos.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Pricing",
                             "link" => "./pricing.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Faqs",
                             "link" => "./faqs.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Clients",
                             "link" => "./clients.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Contact",
                             "link" => "./contact.php",
                         ],
                     ],
-                ],
-                [
-                    'name' => 'home-start',
-                    "visible" => true,
+                    // home-start
                     "title" => "Ubold is a fully featured premium admin template",
                     "details" =>
                     "Ubold is a fully featured premium admin template built on top of awesome Bootstrap 4.4.1, modern web technology HTML5, CSS3 and jQuery. It has many ready to use hand crafted components.",
@@ -68,56 +69,17 @@ class Ecommerce implements ProjectSchemaInterface
                     "background_color" => null,
                     "sub_images" => [],
                     "auto_generate" => true,
-                ],
-                [
-                    'name' => 'clients-side',
+                    // clients
                     "visible" => true,
                     "urls" => [],
                 ],
                 [
-                    'name' => 'features',
+                    'name' => 'product-cards',
                     "visible" => true,
-                    "title" => "The admin is fully responsive and easy to customize",
+                    "title" => "The Recently added products",
                     "details" =>
-                    "The clean and well commented code allows easy customization of the theme.It's designed for describing your app, agency or business.",
-                    "items" => [
-                        [
-                            "icon_url" => "./theme/images/icons/layers.png",
-                            "title" => "Responsive Layouts",
-                            "details" =>
-                            "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
-                        ],
-                        [
-                            "icon_url" => "./theme/images/icons/core.png",
-                            "title" => "Based on Bootstrap UI",
-                            "details" =>
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
-                        ],
-                        [
-                            "icon_url" => "./theme/images/icons/paperdesk.png",
-                            "title" => "Creative Design",
-                            "details" =>
-                            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
-                        ],
-                        [
-                            "icon_url" => "./theme/images/icons/solarsystem.png",
-                            "title" => "Awesome Support",
-                            "details" =>
-                            "At solmen va esser necessi far uniform grammatica pronun e plu sommun paroles.",
-                        ],
-                        [
-                            "icon_url" => "./theme/images/icons/datatext.png",
-                            "title" => "Easy to customize",
-                            "details" =>
-                            "If several languages coalesce the grammar of the is more simple languages.",
-                        ],
-                        [
-                            "icon_url" => "./theme/images/icons/browserscript.png",
-                            "title" => "Quality Code",
-                            "details" =>
-                            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
-                        ],
-                    ],
+                    "ٌYou can find whatever new brands and products in that list",
+                    "items" => [],
                 ],
                 [
                     'name' => 'demos',
@@ -163,31 +125,31 @@ class Ecommerce implements ProjectSchemaInterface
                             awesome Bootstrap 4.1.3, modern web technology HTML5, CSS3 and
                             jQuery.",
                     "footer_menulinks" => [
-                        (object) [
+                        [
                             "title" => "Home",
                             "link" => "./home.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Features",
                             "link" => "./features.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Demos",
                             "link" => "./demos.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Pricing",
                             "link" => "./pricing.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Faqs",
                             "link" => "./faqs.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Clients",
                             "link" => "./clients.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Contact",
                             "link" => "./contact.php",
                         ],
@@ -204,35 +166,46 @@ class Ecommerce implements ProjectSchemaInterface
                     "visible" => true,
                     "navbar_title" => "google",
                     "navbar_menulinks" => [
-                        (object) [
+                        [
                             "title" => "Home",
                             "link" => "./home.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Features",
                             "link" => "./features.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Demos",
                             "link" => "./demos.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Pricing",
                             "link" => "./pricing.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Faqs",
                             "link" => "./faqs.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Clients",
                             "link" => "./clients.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Contact",
                             "link" => "./contact.php",
                         ],
                     ],
+                    // home-start
+                    "title" => "Ubold is a fully featured premium admin template",
+                    "details" =>
+                    "Ubold is a fully featured premium admin template built on top of awesome Bootstrap 4.4.1, modern web technology HTML5, CSS3 and jQuery. It has many ready to use hand crafted components.",
+                    "background_image" => null,
+                    "background_color" => null,
+                    "sub_images" => [],
+                    "auto_generate" => true,
+                    // clients
+                    "visible" => true,
+                    "urls" => [],
                 ],
                 [
                     'name' => "contactus",
@@ -252,31 +225,31 @@ class Ecommerce implements ProjectSchemaInterface
                             awesome Bootstrap 4.1.3, modern web technology HTML5, CSS3 and
                             jQuery.",
                     "footer_menulinks" => [
-                        (object) [
+                        [
                             "title" => "Home",
                             "link" => "./home.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Features",
                             "link" => "./features.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Demos",
                             "link" => "./demos.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Pricing",
                             "link" => "./pricing.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Faqs",
                             "link" => "./faqs.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Clients",
                             "link" => "./clients.php",
                         ],
-                        (object) [
+                        [
                             "title" => "Contact",
                             "link" => "./contact.php",
                         ],

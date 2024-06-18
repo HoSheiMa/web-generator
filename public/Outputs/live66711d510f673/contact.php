@@ -375,7 +375,7 @@
                 body: formdata,
                 redirect: 'follow'
             };
-            fetch("./api/contactus.php", requestOptions)
+            fetch("./api/contactus/contactus.php", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.error == false) {

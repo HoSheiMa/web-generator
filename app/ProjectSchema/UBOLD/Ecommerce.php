@@ -5,12 +5,16 @@ namespace App\ProjectSchema\UBOLD;
 
 use App\Core\Classes\Builder;
 use App\Core\Classes\Schema;
+use App\Models\Project;
 
 class Ecommerce implements ProjectSchemaInterface
 {
+    public function __construct(public Project $project)
+    {
+    }
     public function build($content, $replace_schema)
     {
-        $builder = new Builder();
+        $builder = new Builder($this->project);
         return $builder->setContent($content)->build(
             Schema::matchSchema(
                 $this->getSchema(),
@@ -18,6 +22,7 @@ class Ecommerce implements ProjectSchemaInterface
             )
         );
     }
+
 
     public function getSchema()
     {

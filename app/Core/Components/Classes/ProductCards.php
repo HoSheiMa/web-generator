@@ -6,29 +6,16 @@ use App\Models\Attribute;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 
-class ContactUs
+class ProductCards
 {
     public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {
     }
-
-    public function submitFormPhpCode()
-    {
-        return '';
-    }
-    public function injectPHP($html)
-    {
-        return str_replace('PHP_SCRIPT_FORM_SUBMIT', $this->submitFormPhpCode(), $html);
-        return $html;
-    }
-
     public $structures;
     public function prepare(
         &$structures
     ) {
-        // ? inject backend for contactus component
-        File::copyDirectory(app_path() . "/Core/Components/backend/{$this->component_name}", $this->folder . "/api/contactus");
-
+        $this->structures = $structures;
         foreach ($structures as $structure_key => $structure_value) {
             Attribute::create([
                 "component_id" => $this->component_id,
@@ -42,17 +29,20 @@ class ContactUs
                 },
             ]);
         }
-        $this->structures = $structures;
         return $this;
     }
     public function toHTML()
     {
         $structures = $this->structures;
+        // inject backend api (needed)
+        File::copyDirectory(app_path() . "/Core/Components/backend/products", $this->folder . "/api/products");
+        File::copyDirectory(app_path() . "/Core/Components/backend/cart", $this->folder . "/api/cart");
+        File::copyDirectory(app_path() . "/Core/Components/backend/orders", $this->folder . "/api/orders");
 
         $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
-        return $this->injectPHP(Blade::render(
+        return Blade::render(
             $component,
             $structures
-        ));
+        );
     }
 }

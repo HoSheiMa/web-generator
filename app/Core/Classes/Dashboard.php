@@ -51,6 +51,8 @@ class Dashboard
         ");
         // Login (default)
         File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/AUTH/login.php"), $this->project_folder . "/dashboard/login.php");
+        // register (default)
+        File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/AUTH/register.php"), $this->project_folder . "/dashboard/register.php");
 
         if (in_array('contactus', $features)) {
             File::copy(app_path("Core/Components/Dashboard/{$this->theme_class->theme_name}/contactus.php"), $this->project_folder . "/dashboard/contactus.php");

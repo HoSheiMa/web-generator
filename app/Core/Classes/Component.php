@@ -9,6 +9,7 @@ use App\Core\Components\Classes\Features;
 use App\Core\Components\Classes\Footer;
 use App\Core\Components\Classes\HomeStart;
 use App\Core\Components\Classes\Navbar;
+use App\Core\Components\Classes\ProductCards;
 use App\Models\Component as ModelsComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
@@ -42,6 +43,7 @@ class Component
             "demos" => new Demos($content, $rander_id, $component_name, $folder, $component_id, $theme),
             "contactus" => new ContactUs($content, $rander_id, $component_name, $folder, $component_id, $theme),
             "footer" => new Footer($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            'product-cards' => new ProductCards($content, $rander_id, $component_name, $folder, $component_id, $theme),
         ];
     }
     /**

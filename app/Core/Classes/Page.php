@@ -81,11 +81,15 @@ class page
         ];
 
         $__output = $this->html(collect($components)->join("\n"));
+        if (env('APP_ENV') == "debug") {
 
-        $tidy = new \tidy;
-        $tidy->parseString($__output, $config, 'utf8');
-        $tidy->cleanRepair();
-        # write the render file
-        File::put($this->folder . "/{$this->page_name}.php", (string)$tidy->root());
+            $tidy = new \tidy;
+            $tidy->parseString($__output, $config, 'utf8');
+            $tidy->cleanRepair();
+            # write the render file
+            File::put($this->folder . "/{$this->page_name}.php", (string)$tidy->root());
+        } else {
+            File::put($this->folder . "/{$this->page_name}.php", (string)$__output);
+        }
     }
 }

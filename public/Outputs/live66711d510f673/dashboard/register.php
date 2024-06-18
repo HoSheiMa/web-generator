@@ -1,21 +1,49 @@
 <?php
 include './configs.php';
 include './theme.php';
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if (isset($_POST['submit'])) {
-    // getting the record for the given username
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
-    $stmt->execute([$_POST['email']]);
-    $user = $stmt->fetch();
-    // verifying the password
-    if ($user && password_verify($_POST['password'], $user['password'])) {
-        // starts the session created if login info is correct
-        session_start();
-        $_SESSION['user'] = json_encode($user);
-        header("Location: ./index.php");
-        exit;
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Validate input parameters
+    if (!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['password'])) {
+        $error = 'Invalid input';
     } else {
-        $error = "Login and password don't match";
+        $name = trim($_POST['name']);
+        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        $password = $_POST['password'];
+
+        if (empty($name) || $email === false || empty($password)) {
+            $error = 'Invalid input values';
+        } else {
+            // Check if email already exists
+            $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            if ($stmt->fetchColumn() > 0) {
+                $error = 'Email already exists';
+            } else {
+                // Hash the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                // Prepare the SQL query to insert the new record
+                $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+
+                // Bind the parameters
+                $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+                $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+                $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+
+                // Execute the query
+                if ($stmt->execute()) {
+                    // Redirect to login page
+                    header('Location: ./login.php');
+                    exit;
+                } else {
+                    $error = 'Failed to register user';
+                }
+            }
+        }
     }
 }
 ?>
@@ -93,7 +121,7 @@ if (isset($_POST['submit'])) {
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
                                 <!--begin::Title-->
-                                <h1 class="text-gray-900 fw-bolder mb-3">Sign In</h1>
+                                <h1 class="text-gray-900 fw-bolder mb-3">Register</h1>
                                 <!--end::Title-->
                                 <!--begin::Subtitle-->
                                 <!--end::Subtitle=-->
@@ -105,6 +133,11 @@ if (isset($_POST['submit'])) {
                             </div>
                             <!--end::Separator-->
                             <!--begin::Input group=-->
+                            <div class="fv-row mb-8">
+                                <!--begin::Email-->
+                                <input type="text" placeholder="Name" name="name" autocomplete="off" class="form-control bg-transparent" />
+                                <!--end::Email-->
+                            </div>
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
                                 <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
