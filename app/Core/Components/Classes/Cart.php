@@ -9,7 +9,7 @@ use Exception;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 
-class Navbar
+class Cart
 {
     public  function __construct(public $content, public $rander_id, public $component_name, public $folder, public $component_id, public $theme)
     {

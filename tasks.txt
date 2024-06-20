@@ -1,0 +1,6 @@
+- add role middleware for admin dashboard
+- add more products components in the main page 
+- cart details
+- checkout page
+- see order list
+- update order status

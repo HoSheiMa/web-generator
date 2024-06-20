@@ -31,6 +31,7 @@ class Ecommerce implements ProjectSchemaInterface
                     'name' => "navbar",
                     "visible" => true,
                     "navbar_title" => "google dogs.com",
+                    "enable_cart" => true,
                     "navbar_menulinks" => [
                         [
                             "title" => "Home",
@@ -164,6 +165,7 @@ class Ecommerce implements ProjectSchemaInterface
                 [
                     'name' => "navbar",
                     "visible" => true,
+                    "enable_cart" => true,
                     "navbar_title" => "google",
                     "navbar_menulinks" => [
                         [
@@ -260,7 +262,201 @@ class Ecommerce implements ProjectSchemaInterface
                     'facebook' => "/",
 
                 ]
-            ]
+            ],
+            "cart" => [
+                [
+                    'name' => "navbar",
+                    "visible" => true,
+                    "enable_cart" => true,
+                    "navbar_title" => "google",
+                    "navbar_menulinks" => [
+                        [
+                            "title" => "Home",
+                            "link" => "./home.php",
+                        ],
+                        [
+                            "title" => "Features",
+                            "link" => "./features.php",
+                        ],
+                        [
+                            "title" => "Demos",
+                            "link" => "./demos.php",
+                        ],
+                        [
+                            "title" => "Pricing",
+                            "link" => "./pricing.php",
+                        ],
+                        [
+                            "title" => "Faqs",
+                            "link" => "./faqs.php",
+                        ],
+                        [
+                            "title" => "Clients",
+                            "link" => "./clients.php",
+                        ],
+                        [
+                            "title" => "Contact",
+                            "link" => "./contact.php",
+                        ],
+                    ],
+                    // home-start
+                    "title" => "Ubold is a fully featured premium admin template",
+                    "details" =>
+                    "Ubold is a fully featured premium admin template built on top of awesome Bootstrap 4.4.1, modern web technology HTML5, CSS3 and jQuery. It has many ready to use hand crafted components.",
+                    "background_image" => null,
+                    "background_color" => null,
+                    "sub_images" => [],
+                    "auto_generate" => true,
+                    // clients
+                    "visible" => true,
+                    "urls" => [],
+                ],
+                [
+                    'name' => "cart",
+                    "visible" => true,
+                ],
+                [
+                    'name' => "footer",
+                    "visible" => true,
+                    'footer_title' => "google dogs.com",
+                    'title' => "A Responsive Bootstrap 4 Web App Kit",
+                    "details" => "Ubold is a fully featured premium admin template built on top of
+                            awesome Bootstrap 4.1.3, modern web technology HTML5, CSS3 and
+                            jQuery.",
+                    "footer_menulinks" => [
+                        [
+                            "title" => "Home",
+                            "link" => "./home.php",
+                        ],
+                        [
+                            "title" => "Features",
+                            "link" => "./features.php",
+                        ],
+                        [
+                            "title" => "Demos",
+                            "link" => "./demos.php",
+                        ],
+                        [
+                            "title" => "Pricing",
+                            "link" => "./pricing.php",
+                        ],
+                        [
+                            "title" => "Faqs",
+                            "link" => "./faqs.php",
+                        ],
+                        [
+                            "title" => "Clients",
+                            "link" => "./clients.php",
+                        ],
+                        [
+                            "title" => "Contact",
+                            "link" => "./contact.php",
+                        ],
+                    ],
+                    'facebook' => "/",
+                    'twitter' => "/",
+                    'instagram' => "/",
+                    'facebook' => "/",
+
+                ]
+            ],
+            "checkout" => [
+                [
+                    'name' => "navbar",
+                    "visible" => true,
+                    "enable_cart" => true,
+                    "navbar_title" => "google",
+                    "navbar_menulinks" => [
+                        [
+                            "title" => "Home",
+                            "link" => "./home.php",
+                        ],
+                        [
+                            "title" => "Features",
+                            "link" => "./features.php",
+                        ],
+                        [
+                            "title" => "Demos",
+                            "link" => "./demos.php",
+                        ],
+                        [
+                            "title" => "Pricing",
+                            "link" => "./pricing.php",
+                        ],
+                        [
+                            "title" => "Faqs",
+                            "link" => "./faqs.php",
+                        ],
+                        [
+                            "title" => "Clients",
+                            "link" => "./clients.php",
+                        ],
+                        [
+                            "title" => "Contact",
+                            "link" => "./contact.php",
+                        ],
+                    ],
+                    // home-start
+                    "title" => "Ubold is a fully featured premium admin template",
+                    "details" =>
+                    "Ubold is a fully featured premium admin template built on top of awesome Bootstrap 4.4.1, modern web technology HTML5, CSS3 and jQuery. It has many ready to use hand crafted components.",
+                    "background_image" => null,
+                    "background_color" => null,
+                    "sub_images" => [],
+                    "auto_generate" => true,
+                    // clients
+                    "visible" => true,
+                    "urls" => [],
+                ],
+                [
+                    'name' => "checkout",
+                    "visible" => true,
+                ],
+                [
+                    'name' => "footer",
+                    "visible" => true,
+                    'footer_title' => "google dogs.com",
+                    'title' => "A Responsive Bootstrap 4 Web App Kit",
+                    "details" => "Ubold is a fully featured premium admin template built on top of
+                            awesome Bootstrap 4.1.3, modern web technology HTML5, CSS3 and
+                            jQuery.",
+                    "footer_menulinks" => [
+                        [
+                            "title" => "Home",
+                            "link" => "./home.php",
+                        ],
+                        [
+                            "title" => "Features",
+                            "link" => "./features.php",
+                        ],
+                        [
+                            "title" => "Demos",
+                            "link" => "./demos.php",
+                        ],
+                        [
+                            "title" => "Pricing",
+                            "link" => "./pricing.php",
+                        ],
+                        [
+                            "title" => "Faqs",
+                            "link" => "./faqs.php",
+                        ],
+                        [
+                            "title" => "Clients",
+                            "link" => "./clients.php",
+                        ],
+                        [
+                            "title" => "Contact",
+                            "link" => "./contact.php",
+                        ],
+                    ],
+                    'facebook' => "/",
+                    'twitter' => "/",
+                    'instagram' => "/",
+                    'facebook' => "/",
+
+                ]
+            ],
         ];
     }
 }

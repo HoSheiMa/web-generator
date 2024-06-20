@@ -49,7 +49,47 @@
                                             <!--end::Menu link-->
                                         </div>
                                     @endforeach
+                                    @if (isset($enable_cart) && $enable_cart == true)
+                                        <div class="menu-item ">
+                                            <!--begin::Menu link-->
+                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6 " href="./cart.php" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">
+                                                <i class="ki-duotone ki-handcart text-gray-900 fs-2tx"></i>
+                                                <span id="cart-count" class="badge badge-circle badge-danger ms-2">0</span>
+                                            </a>
+                                            <!--end::Menu link-->
+                                        </div>
+                                        <script>
+                                            // Define the URL to fetch from
+                                            // Use fetch to get the data
+                                            setInterval(() => {
+                                                fetch('./api/cart/count.php')
+                                                    .then(response => {
+                                                        // Check if the response is ok (status is in the range 200-299)
+                                                        if (!response.ok) {
+                                                            throw new Error('Network response was not ok ' + response.statusText);
+                                                        }
+                                                        // Parse the JSON from the response
+                                                        return response.json();
+                                                    })
+                                                    .then(data => {
+                                                        // Log the JSON data to see its structure
+                                                        console.log(data);
 
+                                                        // Access the 'total_count' value in the JSON data
+                                                        if (data.total_count !== undefined) {
+                                                            // console.log('Count:', data.total_count);
+                                                            document.querySelector('#cart-count').innerHTML = data.total_count
+                                                        } else {
+                                                            console.log('Count not found in the response');
+                                                        }
+                                                    })
+                                                    .catch(error => {
+                                                        // Handle any errors that occurred during fetch
+                                                        console.log('There was a problem with the fetch operation:', error);
+                                                    });
+                                            }, 2500);
+                                        </script>
+                                    @endif
                                 </div>
                                 <!--end::Menu-->
                             </div>

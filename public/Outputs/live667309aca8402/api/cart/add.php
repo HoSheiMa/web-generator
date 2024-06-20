@@ -1,7 +1,11 @@
 <?php
 include '../../dashboard/configs.php';
+session_start();
 
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// post data
+$input = file_get_contents('php://input');
+$_POST = json_decode($input, true);
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -25,7 +29,7 @@ if ($product_id === false || $count === false || $count <= 0) {
 }
 
 // Check if the product is already in the cart
-$stmt = $conn->prepare("SELECT count FROM cart WHERE user_id = :user_id AND product_id = :product_id");
+$stmt = $conn->prepare("SELECT count FROM carts WHERE user_id = :user_id AND product_id = :product_id");
 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
 $stmt->execute();
@@ -34,7 +38,7 @@ $existingCartItem = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($existingCartItem) {
     // Update the count if the product is already in the cart
     $newCount = $existingCartItem['count'] + $count;
-    $updateStmt = $conn->prepare("UPDATE cart SET count = :count WHERE user_id = :user_id AND product_id = :product_id");
+    $updateStmt = $conn->prepare("UPDATE carts SET count = :count WHERE user_id = :user_id AND product_id = :product_id");
     $updateStmt->bindParam(':count', $newCount, PDO::PARAM_INT);
     $updateStmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $updateStmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
@@ -45,7 +49,7 @@ if ($existingCartItem) {
     }
 } else {
     // Insert a new record if the product is not in the cart
-    $insertStmt = $conn->prepare("INSERT INTO cart (user_id, product_id, count) VALUES (:user_id, :product_id, :count)");
+    $insertStmt = $conn->prepare("INSERT INTO carts (user_id, product_id, count) VALUES (:user_id, :product_id, :count)");
     $insertStmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $insertStmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
     $insertStmt->bindParam(':count', $count, PDO::PARAM_INT);

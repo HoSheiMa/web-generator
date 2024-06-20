@@ -12,8 +12,9 @@ if (isset($_POST['submit'])) {
         // starts the session created if login info is correct
         session_start();
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['role'] = $user['role'];
         $_SESSION['user'] = json_encode($user);
-        header("Location: ./index.php");
+        header($user['role'] == "admin" ? "Location: ./index.php" : "Location: ../home.php");
         exit;
     } else {
         $error = "Login and password don't match";

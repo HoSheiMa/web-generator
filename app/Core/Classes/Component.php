@@ -2,6 +2,8 @@
 
 namespace App\Core\Classes;
 
+use App\Core\Components\Classes\Cart;
+use App\Core\Components\Classes\Checkout;
 use App\Core\Components\Classes\ClientsSide;
 use App\Core\Components\Classes\ContactUs;
 use App\Core\Components\Classes\Demos;
@@ -11,8 +13,6 @@ use App\Core\Components\Classes\HomeStart;
 use App\Core\Components\Classes\Navbar;
 use App\Core\Components\Classes\ProductCards;
 use App\Models\Component as ModelsComponent;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\File;
 
 class Component
 {
@@ -44,6 +44,8 @@ class Component
             "contactus" => new ContactUs($content, $rander_id, $component_name, $folder, $component_id, $theme),
             "footer" => new Footer($content, $rander_id, $component_name, $folder, $component_id, $theme),
             'product-cards' => new ProductCards($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            'cart' => new Cart($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            'checkout' => new Checkout($content, $rander_id, $component_name, $folder, $component_id, $theme),
         ];
     }
     /**
