@@ -1,6 +1,3 @@
-- add role middleware for admin dashboard
+! important
 - add more products components in the main page 
-- cart details
-- checkout page
-- see order list
-- update order status
+- do ecommerce for ubold also

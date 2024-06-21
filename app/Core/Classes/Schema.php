@@ -41,9 +41,13 @@ class Schema
             if (!$page_updates) return;
             collect($page)->each(function ($component, $component_index) use (&$_, $page_name, $page_updates) {
                 $component_name = collect($component)->get('name');
-                $components_updates = collect($page_updates)->sole('name', $component_name);
-                if (!$components_updates) return;
-                $_[$page_name][$component_index] = [...$component, ...$components_updates];
+                try {
+                    $components_updates = collect($page_updates)->sole('name', $component_name);
+                    if (!$components_updates) return;
+                    $_[$page_name][$component_index] = [...$component, ...$components_updates];
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
             });
         });
 

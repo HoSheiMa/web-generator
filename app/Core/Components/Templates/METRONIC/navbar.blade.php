@@ -58,6 +58,13 @@
                                             </a>
                                             <!--end::Menu link-->
                                         </div>
+                                        <div class="menu-item ">
+                                            <!--begin::Menu link-->
+                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6 " href="./orders.php" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">
+                                                My Orders
+                                            </a>
+                                            <!--end::Menu link-->
+                                        </div>
                                         <script>
                                             // Define the URL to fetch from
                                             // Use fetch to get the data

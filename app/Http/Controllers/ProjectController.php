@@ -94,7 +94,8 @@ class ProjectController extends Controller
         $theme = $themes[$form['theme']];
 
         // TODO: should go to AI to translate and come back to inject with this project params
-        $brief = []; // $form['details'];
+        $brief = json_decode(shell_exec("python3 " . escapeshellarg(app_path('/AI/script.py')) . ' ' . escapeshellarg($form['details'])), true) ?? []; // $form['details'];
+        // info('results', [$form['details'], ($brief), escapeshellarg(app_path('/AI/script.py')) . ' ' . escapeshellarg($form['details'])]);
         $content = $name; // form now test v1
         $user_id = auth()->user() ?  auth()->user()->id :  auth("api")->user()->id;
         $project = Project::create([

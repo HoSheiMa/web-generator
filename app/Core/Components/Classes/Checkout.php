@@ -39,11 +39,9 @@ class Checkout
     {
         $structures = $this->structures;
         // inject backend api (needed)
-        if (isset($structures['enable_cart']) && $structures['enable_cart']) {
-            File::copyDirectory(app_path() . "/Core/Components/backend/cart", $this->folder . "/api/cart");
-        }
+        File::copyDirectory(app_path() . "/Core/Components/backend/cart", $this->folder . "/api/cart");
+        File::copyDirectory(app_path() . "/Core/Components/backend/order", $this->folder . "/api/order");
         // throw_if(!isset($structures['title']), 'RuntimeException', json_encode($structures));
-        info('structures', $structures);
         $component = File::get(base_path() . "/app/Core/Components/Templates/{$this->theme->theme_name}/{$this->component_name}.blade.php");
         return Blade::render(
             $component,

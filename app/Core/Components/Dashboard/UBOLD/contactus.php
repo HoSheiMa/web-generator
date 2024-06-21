@@ -7,6 +7,10 @@ include './theme.php';
 if (!isset($_SESSION['user'])) {
     header("Location: ./login.php");
 }
+// check is admin
+if (!isset($_SESSION['role']) || $_SESSION['role'] != "admin") {
+    header("Location: ./login.php");
+}
 
 
 

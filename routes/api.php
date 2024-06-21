@@ -17,9 +17,12 @@ vider within a group which
 |
 */
 
+
 Route::group([
     'prefix' => 'auth'
 ], function ($router) {
+    Route::post('forgot-password', [AuthController::class, 'forgot_password']);
+    Route::post('change-password', [AuthController::class, 'change_password']);
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
     Route::post('logout', [AuthController::class, 'logout']);

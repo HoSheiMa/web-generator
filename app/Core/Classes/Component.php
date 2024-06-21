@@ -11,6 +11,7 @@ use App\Core\Components\Classes\Features;
 use App\Core\Components\Classes\Footer;
 use App\Core\Components\Classes\HomeStart;
 use App\Core\Components\Classes\Navbar;
+use App\Core\Components\Classes\Orders;
 use App\Core\Components\Classes\ProductCards;
 use App\Models\Component as ModelsComponent;
 
@@ -46,6 +47,7 @@ class Component
             'product-cards' => new ProductCards($content, $rander_id, $component_name, $folder, $component_id, $theme),
             'cart' => new Cart($content, $rander_id, $component_name, $folder, $component_id, $theme),
             'checkout' => new Checkout($content, $rander_id, $component_name, $folder, $component_id, $theme),
+            'orders' => new Orders($content, $rander_id, $component_name, $folder, $component_id, $theme),
         ];
     }
     /**

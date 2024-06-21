@@ -1,84 +1,82 @@
 @if ($visible)
-    <div class="mb-n10 mb-lg-n20 z-index-2">
+    <div class="z-index-2 mt-5">
         <!--begin::Container-->
-        <div class="container">
+        <div class="container  mt-5">
             <!--begin::Heading-->
             <div class="text-center mb-17">
                 <!--begin::Title-->
-                <h3 class="fs-2hx text-gray-900 mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">{{ $title }}</h3>
+                <h3 class="fs-2hx text-gray-900 " id="how-it-works">{{ $title }}</h3>
                 <!--end::Title-->
                 <!--begin::Text-->
-                <div class="fs-5 text-muted fw-bold">{{ $details }}
-                </div>
+                <div class="fs-5 text-muted fw-bold mb-3">{{ $details }}</div>
                 <!--end::Text-->
             </div>
             <!--end::Heading-->
             <!--begin::Row-->
-            <div class="row w-100 gy-10 mb-md-20" id="product-body">
+            <div class="row w-100 gy-10 mb-md-20" id="product-body-{{ $type }}">
                 <!--begin::Col-->
-
             </div>
         </div>
         <!--end::Container-->
     </div>
-
-
 
     <script>
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
         };
-        fetch("./api/products/get.php", requestOptions)
+        fetch("./api/products/{{ $type }}.php", requestOptions)
             .then(response => response.json()).then((products) => {
-                html = ``
+                let html = '';
                 for (const product of products) {
                     html += `
-                    <div class="col-md-4 px-5">
-                          <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"> ${product.name} - <span class="text-primary"> ${product.brand} </span></h3>
-            </div>
-            <div class="card-body">
-                <img height="400" src="${product.image}" class="card-img-top" alt="${product.name}">
-                <p class="card-text mt-3">${product.description}</p>
-                <p class="card-text"><strong>Price:</strong> $<span style="font-size:36px">${product.price}</span></p>
-                <button onclick="addToCart(${product.id})" class="btn btn-primary">Add to Cart</button>
-            </div>
-        </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-lg border-0 h-100">
+                            <div class="card-header bg-primary text-white text-center">
+                                <h3 class="card-title">${product.name} - <span class="text-warning">${product.brand}</span></h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <img height="250" src="${product.image}" class="card-img-top mb-3" alt="${product.name}" style="object-fit: cover;">
+                                <p class="card-text mt-3">${product.description}</p>
+                                <p class="card-text"><strong>Price:</strong> $<span class="h4">${product.price}</span></p>
+                                <button onclick="addToCart(${product.id})" class="btn btn-primary btn-block">Add to Cart</button>
+                            </div>
+                            <div class="card-footer text-center">
+                                <small class="text-muted">Free shipping on orders over $50!</small>
+                            </div>
                         </div>
-                    `
+                    </div>
+                    `;
                 }
-
-                html += ""
-                document.querySelector('#product-body').innerHTML = html;
-
+                document.querySelector('#product-body-{{ $type }}').innerHTML = html;
             })
             .catch(error => {
-                alert('something going wrong, please try again later')
+                alert('Something went wrong, please try again later.');
             });
 
         function addToCart(productId) {
             var requestOptions = {
                 method: 'POST',
-                redirect: 'follow',
-                'body': JSON.stringify({
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
                     'product_id': productId,
-                    'count': 1,
+                    'count': 1
                 })
             };
             fetch("./api/cart/add.php", requestOptions)
                 .then(response => response.json()).then((response) => {
-                    if (response.status == "error" && response.message == "User not logged in") {
-                        return window.location.assign('dashboard/login.php')
+                    if (response.status === "error" && response.message === "User not logged in") {
+                        return window.location.assign('dashboard/login.php');
                     }
-                    if (response.status == "error") {
-                        alert('something going wrong, please try again later')
+                    if (response.status === "error") {
+                        alert('Something went wrong, please try again later.');
+                    } else {
+                        alert('Added Item to the Cart');
                     }
-
-                    alert('Added Item to the Cart');
                 }).catch(error => {
-                    alert('something going wrong, please try again later')
+                    alert('Something went wrong, please try again later.');
                 });
         }
     </script>

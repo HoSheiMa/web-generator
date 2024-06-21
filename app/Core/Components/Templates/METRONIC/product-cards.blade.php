@@ -1,5 +1,5 @@
 @if ($visible)
-    <div class="mb-n10 mb-lg-n20 z-index-2">
+    <div class="z-index-2 mb-10">
         <!--begin::Container-->
         <div class="container">
             <!--begin::Heading-->
@@ -14,7 +14,7 @@
             </div>
             <!--end::Heading-->
             <!--begin::Row-->
-            <div class="row w-100 gy-10 mb-md-20" id="product-body">
+            <div class="row w-100 gy-10 mb-md-20" id="product-body-{{ $type }}">
                 <!--begin::Col-->
 
             </div>
@@ -29,7 +29,7 @@
             method: 'GET',
             redirect: 'follow'
         };
-        fetch("./api/products/get.php", requestOptions)
+        fetch("./api/products/{{ $type }}.php", requestOptions)
             .then(response => response.json()).then((products) => {
                 html = ``
                 for (const product of products) {
@@ -51,7 +51,7 @@
                 }
 
                 html += ""
-                document.querySelector('#product-body').innerHTML = html;
+                document.querySelector('#product-body-{{ $type }}').innerHTML = html;
 
             })
             .catch(error => {
