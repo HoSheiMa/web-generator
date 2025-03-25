@@ -159,11 +159,17 @@
             </div>
         </div>
         <div class="col-10 pt-3 " style="background-color: #edeff3  " wire:poll.1s>
-            <div class="d-flex px-5  justify-content-end">
-                <a wire:click="rebuild" class="btn btn-active-icon-danger btn-active-color-danger btn-active-light-danger btn-text-dark">
-                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span class="path2"></span></i>
-                    Rebuild
-                </a>
+            <div class="row">
+                <div wire:key='btn1' class="col d-flex mx-3  px-5  justify-content-end">
+                    <a wire:click="rebuild" class="btn btn-active-icon-danger btn-active-color-danger btn-active-light-danger btn-text-dark">
+                        <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span class="path2"></span></i>
+                        Rebuild
+                    </a>
+                    <a href="/Outputs/{{ $project->id }}/home.php" class="btn btn-active-icon-danger btn-active-color-danger btn-active-light-danger btn-text-dark">
+                        <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span class="path2"></span></i>
+                        Live View
+                    </a>
+                </div>
             </div>
             @if ($project->status == App\Core\Classes\Utils::READY)
                 <iframe key={{ uniqid() }} class="w-100 h-100" style="transform: scale(0.9)" src="/Outputs/{{ $project->id }}/home.php?q={{ $project->updated_at }}"

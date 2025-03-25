@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-include '../dashboard/configs.php';
+include '../../dashboard/configs.php';
 
 require 'vendor/autoload.php';
 
@@ -131,26 +131,26 @@ if (isset($_POST["submit"])) {
     $stmt = $conn->prepare($sql);
     $stmt->execute([$name, $email, $phone, $message]);
     // TODO [ enable those for fast ]
-    // $res_mail_to_client = sendMail($email, "Thanks for contact us, <b>$name!</b>");
-    // $res_message_to_client = sendMessage($phone, "Thanks for contact us, $name!");
-    // $res_mail_to_support = sendMail('qandilafa@gmail.com', "Client <b>$name!</b>, calling for help, contact him in $email");
-    // $res_message_to_support = sendMessage('201207425745', "Client <b>$name!</b>, calling for help, contact him in $email");
+    $res_mail_to_client = sendMail($email, "Thanks for contact us, <b>$name!</b>");
+    $res_message_to_client = sendMessage($phone, "Thanks for contact us, $name!");
+    $res_mail_to_support = sendMail('qandilafa@gmail.com', "Client <b>$name!</b>, calling for help, contact him in $email");
+    $res_message_to_support = sendMessage('201207425745', "Client <b>$name!</b>, calling for help, contact him in $email");
     // check errors
-    // if ($res_mail_to_client && $res_message_to_client && $res_mail_to_support && $res_message_to_support) {
-    //     echo json_encode([
-    //         "error" => false,
-    //         "message" => "sent!"
-    //     ]);
-    //     exit();
-    // }
+    if ($res_mail_to_client && $res_message_to_client && $res_mail_to_support && $res_message_to_support) {
+        echo json_encode([
+            "error" => false,
+            "message" => "sent!"
+        ]);
+        exit();
+    }
     // TODO 
 
     // save mail in database 
     // TODO comment this when un comment the upbove code please
-    echo json_encode([
-        "error" => false,
-        "message" => "sent!"
-    ]);
+    // echo json_encode([
+    //     "error" => false,
+    //     "message" => "sent!"
+    // ]);
     // TODO
 }
 ?>

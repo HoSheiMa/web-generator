@@ -75,8 +75,8 @@ class Builder
         // ! clean the folder
         // ! this only for debuging the system
         // !!!!!!!!!!!!!!!!!!!
-        File::deleteDirectories(public_path() . '/Outputs/');
-        File::ensureDirectoryExists(public_path() . '/Outputs/');
+        // File::deleteDirectories(public_path() . '/Outputs/');
+        // File::ensureDirectoryExists(public_path() . '/Outputs/');
         // !!!!!!!!!!!!!!!!!!!
         # generate unqie id for this rendering
         # create folder for save rendering files
